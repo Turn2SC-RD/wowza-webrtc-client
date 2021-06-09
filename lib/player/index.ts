@@ -114,7 +114,7 @@ export class WebRTCPlayer {
       const _sendGetOffer = async () => {
         console.log(hash);
         wsConnection.send('{"direction":"play", "command":"getOffer", "streamInfo":'+JSON.stringify(streamInfo)+', "userData":'+JSON.stringify(this.userData) +
-                  '"secureToken":{"hash":"' + hash.hashed + '","starttime:"' + hash.startTime + '","endtime":"' + hash.endTime + '"}}');
+                  ',"secureToken":{"hash":"' + hash.hashed + '","starttime:"' + hash.startTime + '","endtime":"' + hash.endTime + '"}}');
       }
 
       wsConnection.onopen = () => {
