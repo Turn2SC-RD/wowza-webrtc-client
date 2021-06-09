@@ -99,7 +99,7 @@ var WebRTCPlayer = /** @class */ (function () {
      *
      * @param streamName
      */
-    WebRTCPlayer.prototype.connect = function (streamName) {
+    WebRTCPlayer.prototype.connect = function (streamName, hash) {
         return __awaiter(this, void 0, void 0, function () {
             var _assignStream, existingStream;
             var _this = this;
