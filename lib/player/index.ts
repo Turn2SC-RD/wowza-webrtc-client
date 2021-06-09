@@ -73,7 +73,7 @@ export class WebRTCPlayer {
    * 
    * @param streamName
    */
-  async connect(streamName: string) {
+  async connect(streamName: string, hash) {
     // Prevent double case
     if (this.peerConnection) {
       // reconnect instead!
@@ -112,7 +112,8 @@ export class WebRTCPlayer {
       wsConnection.binaryType = 'arraybuffer'
 
       const _sendGetOffer = async () => {
-        wsConnection.send('{"direction":"play", "command":"getOffer", "streamInfo":'+JSON.stringify(streamInfo)+', "userData":'+JSON.stringify(this.userData)+'}')
+        wsConnection.send('{"direction":"play", "command":"getOffer", "streamInfo":'+JSON.stringify(streamInfo)+', "userData":'+JSON.stringify(this.userData) +
+          '"secureToken":{"hash":"' + hash.hashed + '","starttime:"' + hash.startTime + '","endtime":"' + hash.endTime + '"}}');
       }
 
       wsConnection.onopen = () => {
