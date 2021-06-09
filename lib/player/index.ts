@@ -72,8 +72,9 @@ export class WebRTCPlayer {
    * Connect to WebRTC source, acquire media, and attach to target videoElement.
    * 
    * @param streamName
+   * @param hash
    */
-  async connect(streamName: string, hash: Object) {
+  async connect(streamName: string, hash) {
     // Prevent double case
     if (this.peerConnection) {
       // reconnect instead!
