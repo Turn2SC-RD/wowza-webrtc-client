@@ -112,7 +112,8 @@ export class WebRTCPlayer {
       wsConnection.binaryType = 'arraybuffer'
 
       const _sendGetOffer = async () => {
-        console.log(hash);
+        console.log('{"direction":"play", "command":"getOffer", "streamInfo":'+JSON.stringify(streamInfo)+', "userData":'+JSON.stringify(this.userData) +
+                  ',"secureToken":{"hash":"' + hash.hashed + '","starttime:"' + hash.startTime + '","endtime":"' + hash.endTime + '"}}');
         wsConnection.send('{"direction":"play", "command":"getOffer", "streamInfo":'+JSON.stringify(streamInfo)+', "userData":'+JSON.stringify(this.userData) +
                   ',"secureToken":{"hash":"' + hash.hashed + '","starttime:"' + hash.startTime + '","endtime":"' + hash.endTime + '"}}');
       }
