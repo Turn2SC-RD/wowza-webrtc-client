@@ -73,7 +73,7 @@ export class WebRTCPlayer {
    * 
    * @param streamName
    */
-  async connect(streamName: string, hash: JSON) {
+  async connect(streamName: string, hash) {
     // Prevent double case
     if (this.peerConnection) {
       // reconnect instead!
